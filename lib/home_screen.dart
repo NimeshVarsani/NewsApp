@@ -20,19 +20,48 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: const IconThemeData(color: Colors.black),
           title: Center(child: Text('Daily Feed', style: TextStyle(color: Colors.black),)),
           actions: [
             IconButton(onPressed: (){}, icon: Icon(Icons.search))
           ],
         ),
+
         drawer: Drawer(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey[600]
+                ),
+                  child: Text('Daily Feed', style: const TextStyle(color: Colors.white, fontSize: 24.0),)
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.home,
+                ),
+                title: const Text('Home'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  Icons.settings,
+                ),
+                title: const Text('Settings'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
         ),
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: SizedBox(
                 height: 40,
                 child: TabBar(

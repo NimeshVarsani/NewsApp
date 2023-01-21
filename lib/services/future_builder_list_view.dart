@@ -34,9 +34,9 @@ class FutureBuilderListView extends StatelessWidget {
           );
         }
         else if (snapshot.hasError) {
-          return Text('error occured : ${snapshot.error}');
+          return const Center(child: Text('Check your Internet connection and Try again!'));
         }
-        return Center(child: const CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       },
     );
     //
